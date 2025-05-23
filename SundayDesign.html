@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sunday Design</title>
+  <link rel="shortcut icon" href="s logo.png" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playwrite+HU:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root{
+    --primary-color:#254d4d;
+    --text-dark:#171717;
+    --text-light:#737373;
+    --extra-light:#f4f6f5;
+    --max-width:1200px;
+    --header-font: "Merriweather", serif;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.section_container{
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+}
+.section_header{
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: var(--header-font);
+    color: var(--primary-color);
+}
+.section_description{
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+.logo{
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: var(--header-font); 
+}
+.logo span{
+    color:rgb(148, 163, 14);
+}
+img{
+    display: flex;
+    width: 100%;
+}
+a{
+    text-decoration:none;
+    transition: 0.3s;
+}
+ul{
+    list-style: none;
+}
+html,body{
+    scroll-behavior: smooth;
+}
+body{
+    font-family:"Poppins", sans-serif;
+}
+nav{
+    position: fixed;
+    isolation: isolate;
+    width: 100%;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    z-index: 9;
+}
+.nav_header{
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-color);
+}
+.nav_logo .logo{
+    color:white;
+}
+.nav_menu_btn{
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+.nav_links{
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width:100%;
+    padding:2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--primary-color);
+    transition: .5s;
+    z-index: -1;
+}
+.nav_links.open{
+    transform: translateY(0);
+}
+.nav_links a{
+    font-weight: 500;
+    color: rgba(148, 163, 14);
+}
+.nav_profile{
+    display: none;
+}
+.nav_profile span{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+.nav_profile .profile_details{
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+.nav_profile.open .profile_details{
+    display: block;
+}
+.nav_profile .profile_details p{
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+.nav_profile .profile_details p:last-child{
+    margin-bottom: 0;
+}
+.header_container{
+    display: grid;
+    overflow: hidden;
+}
+.header_image{
+    grid-area: 1/1/2/2;
+}
+.header_image img{
+    max-width: 900px;
+    margin-left: auto;
+}
+.header_content{
+    grid-area: 1/1/2/2;
+    display: flex;
+    align-items: center;
+}
+.header_content >div{
+    max-width: 500px;
+    padding: 4rem 1rem;
+    background-color: rgba(255,255,255,0.5);
+    backdrop-filter: blur(10px);
+}
+.header_content h1{
+    margin-bottom: 1rem;
+    font-size: 4rem;
+    font-weight: 600;
+    font-family:var(--header-font);
+    color: var(--primary-color);
+}
+.header_content p{
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+.search_form {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+.search_form input[type="text"] {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--text-light);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.search_form input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+.search_form select {
+    padding: 0.75rem;
+    border: 1px solid var(--text-light);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: white;
+}
+.search_form .price_filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.search_form input[type="number"] {
+    width: 100px;
+    padding: 0.75rem;
+    border: 1px solid var(--text-light);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.search_form button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.search_form button:hover {
+    background-color: rgb(175, 50, 71);
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+.pagination button {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--text-light);
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.pagination button.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.deals_container{
+    display: grid;
+    gap:2rem;
+}
+.deals_card span{
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+.deals_card h4{
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+.deals_card h2{
+    color: rgb(134, 4, 13);
+}
+.deals_card p{
+    color: var(--text-light);
+}
+.about_header{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.about_header h2{
+   color: rgb(121, 133, 18);
+}
+.about_header .section_description{
+    max-width: 600px;
+}
+.about_btn{
+    width:fit-content;
+    padding: .75rem 1.5rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    color: white;
+    white-space: nowrap;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    transition: .3s;
+    cursor: pointer;
+}
+.about_content{
+    margin-top: 2rem;
+    display: grid;
+    gap: 2rem;
+}
+.about_image{
+    overflow: hidden;
+}
+.about_card h3{
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+.about_card h4{
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(25, 49, 5);
+}
+.about_card p{
+    color: var(--text-light);
+}
+.about_grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+#product h2{
+    color:rgb(77, 3, 31);
+}
+.product_grid{
+    margin-top: 4rem;
+    display: grid;
+    gap: 2rem;
+}
+.product_card{
+    position: relative;
+    isolation: isolate;
+    padding: 2rem;
+}
+.product_card::before{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 65%;
+    background-color: rgb(237, 247, 228);
+    z-index: -1;
+    transition: 0.3s;
+}
+.product_card:hover::before{
+    height: 100%;
+}
+.product_card h4{
+   font-size: 1.5rem;
+   font-weight: 500;
+   color: var(--text-dark);
+}
+.product_card p{
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+.product_card img{
+    max-width:275px;
+    margin-inline: auto;
+}
+.add_to_cart_btn {
+    margin-top: 1rem;
+    background-color:rgb(77, 122, 9);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+.add_to_cart_btn:hover {
+    background-color:rgb(175, 50, 71);
+}
+.contact_container {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.contact_details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+#contact h2{
+    color: rgb(97, 6, 37);
+}
+.contact_card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    width: 200px;
+}
+.contact_card span {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+.contact_card h4 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.1rem;
+}
+.register_container {
+    padding: 4rem 1rem;
+    background-color: var(--extra-light);
+}
+.register_form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color:  rgb(223, 241, 186);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+.register_form h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+.form_group {
+    margin-bottom: 1.5rem;
+}
+.form_group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+.form_group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--text-light);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.form_group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+.register_btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.register_btn:hover {
+    background-color: rgb(175, 50, 71);
+}
+.error_message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+@media(width >540px) {
+    .deals_container {
+       grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(width > 768px) {
+    nav {
+        position: static;
+        padding: 2rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+    .nav_header {
+       flex: 1;
+       padding: 0;
+       background-color: transparent;
+    }
+    .nav_menu_btn {
+         display: none;
+    }
+    .nav_logo .logo {
+        color: var(--primary-color);
+    }
+    .nav_links {
+        position: static;
+        padding: 0;
+        width: fit-content;
+        flex-direction: row;
+        gap: 3rem;
+        background-color: transparent;
+        transform: none;
+    }
+    .nav_links a {
+        color: rgba(148, 163, 14);
+        font-size: 1.3rem;
+    }
+    .nav_links a:hover {
+        color: var(--primary-color);
+    }
+    .nav_profile {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1rem;
+        position: relative;
+    }
+    .header_container {
+        padding-top: 0;
+    }
+    .deals_container {
+        grid-template-columns: repeat(3,1fr);
+    }
+    .deals_card:nth-child(1) {
+        grid-column: 1/4;
+    }
+    .about_header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .about_content {
+       grid-template-columns: repeat(2,1fr);
+       align-items: center;
+    }
+    .about_image {
+        grid-area: 1/2/2/3;
+    }
+    .product_grid {
+        grid-template-columns: repeat(3,1fr);
+    }
+    .search_form {
+        flex-wrap: nowrap;
+        background-color: rgb(217, 239, 180);
+    }
+}
+@media(width > 1024px) {
+    .deals_container {
+        grid-template-columns: repeat(4,1fr);
+    }
+    .deals_card:nth-child(1) {
+        grid-column: unset;
+    }
+    .about_grid {
+        gap: 4rem 2rem;
+    }
+}
+  </style>
+</head>
+<body>
+    <nav>
+        <div class="nav_header">
+            <div class="nav_logo">
+                <a href="#" class="logo"><span>Sunday</span>Design</a>
+            </div>
+            <div class="nav_menu_btn" id="menu_btn">
+                <i class="ri-menu-line"></i>
+            </div>
+        </div>
+        <ul class="nav_links" id="nav_links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#product">Product</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#register">Register</a></li>
+        </ul>
+        <div class="nav_profile" id="nav-profile">
+            <span><i class="ri-user-line" id="profile_icon"></i></span>
+            <div class="profile_details">
+                <p id="profile_name">Guest</p>
+                <p id="profile_email">Please register</p>
+            </div>
+        </div>
+    </nav>
+    <header class="section_container header_container" id="home">
+        <div class="header_image">
+            <img src="spacejoy-0JGRXomKXSw-unsplash.jpg" alt="header">
+        </div>
+        <div class="header_content">
+            <div>
+                <h1>We Help you Modern Interior</h1>
+                <p>
+                    We will help you to make an elegant and luxurious Interior
+                    by expert of Interior designer
+                </p>
+            </div>
+        </div>
+    </header>
+    <section class="section_container deals_container">
+        <div class="deals_card">
+            <h2 class="section_header">Hot deals for you</h2>
+            <p>Online shopping for retail sales direct to consumers</p>
+        </div>
+        <div class="deals_card">
+            <span><i class="ri-cash-line"></i></span>
+            <h4>1.5% Cashback</h4>
+            <p>Earn a 1.5% cashback reward on every furniture purchase</p>
+        </div>
+        <div class="deals_card">
+            <span><i class="ri-calendar-schedule-line"></i></span>
+            <h4>30 Day Terms</h4>
+            <p>30 days payment terms</p>
+        </div>
+        <div class="deals_card">
+            <span><i class="ri-money-rupee-circle-line"></i></span>
+            <h4>Save Money</h4>
+            <p>Discover unbeatable prices and save big money on top quality furniture!</p>
+        </div>
+    </section>
+    <section class="section_container about_container" id="about">
+        <div class="about_header">
+            <div>
+                <h2 class="section_header">About Us</h2>
+                <p class="section_description">
+                    Sunday Design is passionate about transforming spaces with elegant and luxurious furniture. Our expert interior designers work closely with clients to create modern interior.
+                </p>
+            </div>
+            <button class="about_btn">Learn More</button>
+        </div>
+        <div class="about_content">
+            <div class="about_image">
+                <img src="Lovepik_com-401003111-group-furniture.png" alt="about">
+            </div>
+            <div class="about_grid">
+                <div class="about_card">
+                    <h3>1.</h3>
+                    <h4>Who We Are</h4>
+                    <p>We are a team of dedicated interior design professionals with a passion for creating beautiful, functional spaces.</p>
+                </div>
+                <div class="about_card">
+                    <h3>2.</h3>
+                    <h4>What We Do</h4>
+                    <p>We design and supply premium furniture, offering customized solutions for homes and offices.</p>
+                </div>
+                <div class="about_card">
+                    <h3>3.</h3>
+                    <h4>How We Help</h4>
+                    <p>Our experts guide you through the entire design process, from concept to installation, ensuring a seamless experience.</p>
+                </div>
+                <div class="about_card">
+                    <h3>4.</h3>
+                    <h4>Our Story</h4>
+                    <p>Founded with a vision to redefine interior design, Sunday Design combines creativity and craftsmanship in every project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_container product_container" id="product">
+        <h2 class="section_header">Products</h2>
+        <div class="search_form">
+            <input type="text" id="product_search_input" placeholder="Search products...">
+            <div class="price_filter">
+                <input type="number" id="product_min_price" placeholder="Min Price" min="0">
+                <input type="number" id="product_max_price" placeholder="Max Price" min="0">
+            </div>
+            <select id="product_sort_select">
+                <option value="name-asc">Name (A-Z)</option>
+                <option value="name-desc">Name (Z-A)</option>
+                <option value="price-asc">Price (Low to High)</option>
+                <option value="price-desc">Price (High to Low)</option>
+            </select>
+            <button onclick="applyProductFilters()">Apply</button>
+        </div>
+        <div class="product_grid" id="product_grid"></div>
+        <div class="pagination" id="product_pagination"></div>
+    </section>
+    <section class="section_container contact_container" id="contact">
+        <h2 class="section_header">Get in Touch</h2>
+        <p class="section_description">We would love to hear from you! Reach out to us through any of the following ways:</p>
+        <div class="contact_details">
+            <div class="contact_card">
+                <span><i class="ri-phone-line"></i></span>
+                <h4>Phone</h4>
+                <p>989-071-0237</p>
+            </div>
+            <div class="contact_card">
+                <span><i class="ri-mail-line"></i></span>
+                <h4>Email</h4>
+                <p>support
+                    @sundaydesign.com</p>
+            </div>
+            <div class="contact_card">
+                <span><i class="ri-map-pin-line"></i></span>
+                <h4>Address</h4>
+                <p>123 Interior Street, Design City, NY 10001</p>
+            </div>
+            <div class="contact_card">
+                <span><i class="ri-time-line"></i></span>
+                <h4>Working Hours</h4>
+                <p>Mon - Sat: 9am - 6pm</p>
+            </div>
+        </div>
+    </section>
+    <section class="section_container register_container" id="register">
+        <div class="register_form">
+            <h2 class="section_header">Create an Account</h2>
+            <form id="register_form">
+                <div class="form_group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                    <div class="error_message" id="username_error">Username must be at least 3 characters</div>
+                </div>
+                <div class="form_group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error_message" id="email_error">Please enter a valid email address</div>
+                </div>
+                <div class="form_group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <div class="error_message" id="password_error">Password must be at least 8 characters</div>
+                </div>
+                <div class="form_group">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                    <div class="error_message" id="confirm_password_error">Passwords do not match</div>
+                </div>
+                <button type="submit" class="register_btn">Register</button>
+            </form>
+        </div>
+    </section>
+    <script>
+        const products = [
+            { name: "Chair", price: 50, image: "vecteezy_ai-generated-armchair-furniture-isolated-on-transparent_40452829.png" },
+            { name: "Dining Table", price: 85, image: "vecteezy_dining-table-with-wooden-chairs-on-transparent-background_48718876.png" },
+            { name: "Side Table", price: 40, image: "vecteezy_stylish-wooden-side-table-with-houseplants_53962824.png" },
+            { name: "Sofa", price: 75, image: "vecteezy_sofa-isolated-on-transparent-background_48723195.png" },
+            { name: "TV Cabinet", price: 90, image: "vecteezy_wooden-tv-cabinet_23614718.png" },
+            { name: "Bench", price: 30, image: "vecteezy_extraordinary-artistic-meditation-bench-wooden-foldable_57452515.png" },
+            { name: "Coffee Table", price: 65, image: "axel-ruffini-iyjiIBrg8_I-unsplash.jpg" },
+            { name: "Bookshelf", price: 120, image: "wu-yi-3lJMJ3g37IE-unsplash.jpg" },
+            { name: "Armchair", price: 70, image: "christopher-machicoane-hurtaud-j7g73KSHeZo-unsplash.jpg" },
+            { name: "Desk", price: 100, image: "aleksi-tappura-mCg0ZgD7BgU-unsplash.jpg" },
+            { name: "Wardrobe", price: 150, image: "a65-design-eUK-z1I7DSE-unsplash.jpg" },
+            { name: "Bed", price: 200, image: "slaapwijsheid-nl-CrsrS8eEERA-unsplash.jpg" },
+            { name: "vasks", price: 20, image:"omk-Uo2W75MB8uU-unsplash.jpg" }
+        ];
+
+        /////////// State
+        const itemsPerPage = 6;
+        let productCurrentPage = 1;
+        let productFilteredProducts = [...products];
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        const menuBtn = document.getElementById("menu_btn");
+        const navLinks = document.getElementById("nav_links");
+        const menuBtnIcon = menuBtn.querySelector("i");
+        const navProfile = document.getElementById("nav-profile");
+        const profileIcon = document.getElementById("profile_icon");
+
+        menuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("open");
+            const isOpen = navLinks.classList.contains("open");
+            menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+        });
+
+        navLinks.addEventListener("click", (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove("open");
+                menuBtnIcon.setAttribute("class", "ri-menu-line");
+            }
+        });
+
+        profileIcon.addEventListener("click", () => {
+            navProfile.classList.toggle("open");
+        });
+
+        //////////local storage 
+        function loadUserProfile() {
+            const user = JSON.parse(localStorage.getItem('user')) || {};
+            const profileName = document.getElementById("profile_name");
+            const profileEmail = document.getElementById("profile_email");
+            
+            profileName.textContent = user.username || "Guest";
+            profileEmail.textContent = user.email || "Please register";
+        }
+
+        //////////// Register form validation
+        const registerForm = document.getElementById("register_form");
+        registerForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let isValid = true;
+
+            document.querySelectorAll(".error_message").forEach(error => {
+                error.style.display = "none";
+            });
+
+            const username = document.getElementById("username").value;
+            if (username.length < 3) {
+                document.getElementById("username_error").style.display = "block";
+                isValid = false;
+            }
+
+            const email = document.getElementById("email").value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById("email_error").style.display = "block";
+                isValid = false;
+            }
+
+            const password = document.getElementById("password").value;
+            if (password.length < 8) {
+                document.getElementById("password_error").style.display = "block";
+                isValid = false;
+            }
+
+            const confirmPassword = document.getElementById("confirm_password").value;
+            if (password !== confirmPassword) {
+                document.getElementById("confirm_password_error").style.display = "block";
+                isValid = false;
+            }
+
+            if (isValid) {
+                const user = { username, email };
+                localStorage.setItem('user', JSON.stringify(user));
+                alert("Registration successful!");
+                registerForm.reset();
+                loadUserProfile();
+            }
+        });
+
+        ////////// Cart 
+        function addToCart(product) {
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${product.name} has been added to your cart!`);
+        }
+
+        function renderProducts(productList, containerId, page = 1) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedProducts = productList.slice(start, end);
+
+            if (paginatedProducts.length === 0) {
+                container.innerHTML = '<p>No products found.</p>';
+                return;
+            }
+
+            container.classList.add('product_grid');
+            paginatedProducts.forEach(product => {
+                const productCard = `
+                    <div class="product_card">
+                        <h4>${product.name}</h4>
+                        <p>$${product.price}</p>
+                        <img src="${product.image}" alt="${product.name}" onerror="this.src='fallback-image.png';"/>
+                        <button class="add_to_cart_btn" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', productCard);
+            });
+
+            // Render pagination
+            renderPagination(productList.length, page, containerId);
+        }
+
+        // Pagination rendering
+        function renderPagination(totalItems, currentPage, containerId) {
+            const pagination = document.getElementById('product_pagination');
+            pagination.innerHTML = '';
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+            if (totalPages <= 1) return;
+
+            const prevButton = `<button onclick="changePage(${currentPage - 1}, '${containerId}')" ${currentPage === 1 ? 'disabled' : ''} aria-label="Previous page">Previous</button>`;
+            pagination.insertAdjacentHTML('beforeend', prevButton);
+
+            for (let i = 1; i <= totalPages; i++) {
+                const pageButton = `<button onclick="changePage(${i}, '${containerId}')" class="${i === currentPage ? 'active' : ''}" aria-label="Go to page ${i}" ${i === currentPage ? 'aria-current="page"' : ''}>${i}</button>`;
+                pagination.insertAdjacentHTML('beforeend', pageButton);
+            }
+
+            const nextButton = `<button onclick="changePage(${currentPage + 1}, '${containerId}')" ${currentPage === totalPages ? 'disabled' : ''} aria-label="Next page">Next</button>`;
+            pagination.insertAdjacentHTML('beforeend', nextButton);
+        }
+
+        // Apply filters for products section
+        function applyProductFilters() {
+            const searchTerm = document.getElementById('product_search_input').value.toLowerCase();
+            const minPrice = parseFloat(document.getElementById('product_min_price').value) || 0;
+            const maxPrice = parseFloat(document.getElementById('product_max_price').value) || Infinity;
+            const sortOption = document.getElementById('product_sort_select').value;
+
+            productFilteredProducts = products.filter(product => {
+                return product.name.toLowerCase().includes(searchTerm) &&
+                       product.price >= minPrice &&
+                       product.price <= maxPrice;
+            });
+
+            productFilteredProducts.sort((a, b) => {
+                if (sortOption === 'price-asc') return a.price - b.price;
+                else if (sortOption === 'price-desc') return b.price - a.price;
+                else if (sortOption === 'name-asc') return a.name.localeCompare(b.name);
+                else if (sortOption === 'name-desc') return b.name.localeCompare(a.name);
+                return 0;
+            });
+
+            productCurrentPage = 1;
+            renderProducts(productFilteredProducts, 'product_grid', productCurrentPage);
+        }
+
+        // Change page
+        function changePage(page, containerId) {
+            if (page < 1 || page > Math.ceil(productFilteredProducts.length / itemsPerPage)) return;
+            productCurrentPage = page;
+            renderProducts(productFilteredProducts, containerId, productCurrentPage);
+        }
+
+        // Debounce for search input
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Add debounce to product search input
+        const productSearchInput = document.getElementById('product_search_input');
+        productSearchInput.addEventListener('input', debounce(applyProductFilters, 300));
+
+        // Initial render
+        renderProducts(productFilteredProducts, 'product_grid', productCurrentPage);
+        loadUserProfile();
+    </script>
+</body>
+</html>
